@@ -5,10 +5,11 @@ const MapWrapper = function (container, center, zoom) {
   });
 }
 
-MapWrapper.prototype.addMarker = function (coords, contentString) {
+MapWrapper.prototype.addMarker = function (coords, contentString, icon) {
   const marker = new google.maps.Marker({
     map: this.googleMap,
-    position: coords
+    position: coords,
+    icon: icon
   });
   const infowindow = new google.maps.InfoWindow({
     content: contentString,
@@ -37,6 +38,7 @@ MapWrapper.prototype.whereAmI = function (whereAmIButton) {
   whereAmIButton.addEventListener('click', () => {
     navigator.geolocation.getCurrentPosition((position) => {
       this.googleMap.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+      this.addMarker({lat: position.coords.latitude, lng: position.coords.longitude},'This is your current location!','http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
     });
   });
 }
