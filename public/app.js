@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mapContainer = document.querySelector('#main-map');
 
   const murrayfield = {lat: 55.9422, lng: -3.2408};
-  const twickenham = {lat: 51.4559, lng: 0.3415};
+  const twickenham = {lat: 51.4559, lng: -0.3415};
 
   const mainMap = new MapWrapper(mapContainer, murrayfield, 10);
 
