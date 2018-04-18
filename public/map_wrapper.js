@@ -9,7 +9,8 @@ MapWrapper.prototype.addMarker = function (coords, contentString, icon) {
   const marker = new google.maps.Marker({
     map: this.googleMap,
     position: coords,
-    icon: icon
+    icon: icon,
+    animation: google.maps.Animation.DROP
   });
   const infowindow = new google.maps.InfoWindow({
     content: contentString,
@@ -31,6 +32,7 @@ MapWrapper.prototype.addClickListener = function () {
 MapWrapper.prototype.takeMeToDunedin = function (takeMeToDunedinButton) {
   takeMeToDunedinButton.addEventListener('click', () => {
     this.googleMap.setCenter(new google.maps.LatLng(-45.8788, 170.5028));
+    this.addMarker({lat: -45.8788, lng:170.5028});
   });
 }
 
